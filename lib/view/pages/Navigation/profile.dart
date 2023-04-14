@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:vezeeta_app/controller/services/loginServices.dart';
+import 'package:vezeeta_app/view/pages/Authentication/logIn.dart';
+import 'package:vezeeta_app/view/pages/settings/SettingsPage.dart';
 import 'package:vezeeta_app/view/widgets/profileButtons.dart';
 
 class Profile extends StatelessWidget {
@@ -11,6 +15,7 @@ class Profile extends StatelessWidget {
     'Settings',
     'Logout'
   ];
+
   List<IconData> icons = [
     Icons.person_3_outlined,
     Icons.question_mark_outlined,
@@ -36,7 +41,20 @@ class Profile extends StatelessWidget {
               },
               shrinkWrap: true,
               itemBuilder: (_, i) {
-                return ProfileButton(icon: icons[i], text: texts[i]);
+                return ProfileButton(
+                    onTap: () {
+                      switch (i) {
+                        case 3:
+                          Get.to(() => SettingsPage());
+                          break;
+                        case 4:
+                          FirebaseService().logOut();
+                          Get.to(() => Login());
+                          break;
+                      }
+                    },
+                    icon: icons[i],
+                    text: texts[i]);
               },
               itemCount: texts.length,
             ),
@@ -79,22 +97,22 @@ class Profile extends StatelessWidget {
                     children: [
                       TextButton(
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             "Terms of Use",
-                            style: const TextStyle(color: Colors.grey),
+                            style: TextStyle(color: Colors.grey),
                           )),
                       const Text('.'),
                       TextButton(
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             "Privacy Policy",
-                            style: const TextStyle(color: Colors.grey),
+                            style: TextStyle(color: Colors.grey),
                           )),
                     ],
                   ),
                   const Text(
                     '11.14.1',
-                    style: const TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey),
                   )
                 ],
               ),
