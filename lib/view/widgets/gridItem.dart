@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GridItem extends StatelessWidget {
-  GridItem({super.key, required this.imageUrl, required this.text,this.onTap});
+  GridItem({super.key, required this.imageUrl, required this.text, this.onTap});
   String text;
   String imageUrl;
   Function()? onTap;
@@ -19,6 +19,9 @@ class GridItem extends StatelessWidget {
             CircleAvatar(
               backgroundImage: AssetImage(imageUrl),
               radius: 40,
+            ),
+            const SizedBox(
+              height: 4,
             ),
             Text(text)
           ],

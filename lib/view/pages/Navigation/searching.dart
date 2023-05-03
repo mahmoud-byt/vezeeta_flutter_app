@@ -1,8 +1,13 @@
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:vezeeta_app/view/pages/searching/specialities.dart';
 import 'package:vezeeta_app/view/widgets/bookingCard.dart';
 import 'package:vezeeta_app/view/widgets/gridItem.dart';
 import 'package:vezeeta_app/view/widgets/searchInput.dart';
+
+import '../AskDoc.dart';
 
 class Searching extends StatelessWidget {
   Searching({super.key});
@@ -12,6 +17,7 @@ class Searching extends StatelessWidget {
     'assets/download.jpg',
     'assets/download (1).jpg',
   ];
+  final Box = GetStorage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,28 +37,43 @@ class Searching extends StatelessWidget {
                             crossAxisSpacing: 10,
                             mainAxisExtent: 120),
                     itemBuilder: (_, i) {
-                      return GridItem(
-                          imageUrl: imagesUrls[i],
-                          text: [
-                            'Clinic Visit',
-                            'Pharmacy',
-                            'Doctor Call',
-                            'Home Visit'
-                          ][i]);
+                      return GestureDetector(
+                        onTap: () {
+                          Box.write('gesture', i);
+                          switch (i) {
+                            case 0:
+                              Get.to(() => Specialities());
+                              break;
+                            case 3:
+                              Get.to(() => Specialities());
+                              break;
+                          }
+                        },
+                        child: GridItem(
+                            imageUrl: imagesUrls[i],
+                            text: [
+                              "1".tr,
+                              "2".tr,
+                              "3".tr,
+                              "4".tr,
+                            ][i]),
+                      );
                     }),
               ),
               const SizedBox(
                 height: 20,
               ),
               SearchingInput(
-                  headLine: 'Book Clinic Appointment',
-                  placeholder: 'Search for Speciality,Doctor or Hospital'),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => Specialities()));
+                  },
+                  headLine: '5'.tr,
+                  placeholder: '6'.tr),
               const SizedBox(
                 height: 20,
               ),
-              SearchingInput(
-                  headLine: 'Order Medicines',
-                  placeholder: 'What are you looking for ? '),
+              SearchingInput(headLine: '7'.tr, placeholder: '8'.tr),
               const SizedBox(
                 height: 20,
               ),
@@ -90,7 +111,9 @@ class Searching extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => AskDoctor());
+                      },
                       child: Container(
                           padding: const EdgeInsets.all(15),
                           decoration: BoxDecoration(
@@ -108,6 +131,10 @@ class Searching extends StatelessWidget {
                 height: 20,
               ),
               BookingCard(
+                  onTap: () {
+                    Box.write('gesture', 3);
+                    Get.to(() => Specialities());
+                  },
                   head: 'Home Visit',
                   body:
                       'Choose the speciality,and the doctor will visit you at home',

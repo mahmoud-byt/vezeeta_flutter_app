@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "467322917635",
+    "project_id": "vezeeta-a2089",
+    "storage_bucket": "vezeeta-a2089.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467322917635:android:61d4519a2090d7ad838f36",
+        "android_client_info": {
+          "package_name": "com.example.vezeeta_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467322917635-enj49lunp2ns0j6j4silqn2m2a4v917d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwundD3meiu9zq96Bl5ll-Dyln5WItQC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467322917635-enj49lunp2ns0j6j4silqn2m2a4v917d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "467322917635-49u033lsmlu4vihltfmkr788ij63m7p2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vezeetaApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,7 +8,7 @@ class BookingCard extends StatelessWidget {
       required this.head,
       required this.body,
       required this.buttonText,
-      required this.imageUrl});
+      required this.imageUrl,this.onTap});
   String head;
   String body;
   String buttonText;
